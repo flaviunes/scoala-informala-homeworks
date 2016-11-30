@@ -6,22 +6,38 @@ public class StringUtilityTest {
 	@Test
 	public void stringWhiteSpacesRemoved(){
 		// given
-		String s = new String("Scoala informala de IT");
-		StringUtility stringUtility = new StringUtility();
+		String s = new String("Scoala informala de IT");          //pe cine testezi
+		StringUtility stringUtility = new StringUtility();        //dependintele obiectului
 		// when
-		String givenString = stringUtility.removeWhiteSpaces(s);
+		String givenString = stringUtility.removeWhiteSpaces(s);  //actiune
 		// then
-		String correctString = new String("ScoalainformaladeIT");
-		Assert.assertEquals(correctString, givenString);
+		String correctString = new String("ScoalainformaladeIT"); //verificare obiect dupa initializere
+		Assert.assertEquals(correctString, givenString);          //comparatie
 				
 	}
 	
 	@Test
 	public void stringWordNumberReplacedWithDigit() {
-		String s = new String("One,Two,Three,Four,Five,Six,Seven,Eight,Nine");
+		//given
+		String s = new String("One Two Three Four Five Six Seven Eight Nine");
 		StringUtility stringUtility = new StringUtility();
+		//when
 		String givenString = stringUtility.replaceWordsWithDigits(s);
-		String correctString = new String("1,2,3,4,5,6,7,8,9");
+		//then
+		String correctString = new String("1 2 3 4 5 6 7 8 9");
+		Assert.assertEquals(correctString, givenString);
+		
+	}
+	
+	@Test
+	public void stringWordNumberReplacedWithDigitOnlyIfAlone() {
+		//given
+		String s = new String("One Two Thirty-four Five Six Seven Eighty-nine");
+		StringUtility stringUtility = new StringUtility();
+		//when
+		String givenString = stringUtility.replaceWordsWithDigits(s);
+		//then
+		String correctString = new String("1 2 Thirty-four 5 6 7 Eighty-nine");
 		Assert.assertEquals(correctString, givenString);
 		
 	}
