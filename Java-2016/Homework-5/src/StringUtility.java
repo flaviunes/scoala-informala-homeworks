@@ -21,7 +21,7 @@ public class StringUtility {
 
 	/**
 	 * This method transforms all characters in a string to lower case
-	 * characters , the method is searching for words from zero to nine and
+	 * characters , the method is searching for words from "zero" to "nine" and
 	 * replaces them with digits from 0 to 9 , then it's returning the string
 	 * transformed.
 	 */
@@ -121,7 +121,12 @@ public class StringUtility {
 		lowerString = s.toLowerCase();
 		return s;
 	}
-	
+
+	/**
+	 * This method is verifying if a certain string is containing a specific
+	 * digit or if the string it's starting or ending with that digit.
+	 * 
+	 */
 	private boolean containsDigit(String lowerString, String stringDigit) {
 		boolean contains = (lowerString.contains(" " + stringDigit + " ") || lowerString.startsWith(stringDigit + " ")
 				|| lowerString.endsWith(" " + stringDigit) || lowerString.equals(stringDigit));
