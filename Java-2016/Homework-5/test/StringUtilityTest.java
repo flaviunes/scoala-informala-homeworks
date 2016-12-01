@@ -7,23 +7,23 @@ public class StringUtilityTest {
 	@Test
 	public void stringWhiteSpacesRemoved(){
 		// given
-		String s = new String("Scoala informala de IT");          //pe cine testezi
-		StringUtility stringUtility = new StringUtility();        //dependintele obiectului
+		String string = "Scoala informala de IT";          
+		StringUtility stringUtility = new StringUtility();        
 		// when
-		String givenString = stringUtility.removeWhiteSpaces(s);  //actiune
+		String givenString = stringUtility.removeWhiteSpaces(string);  
 		// then
-		String correctString = new String("ScoalainformaladeIT"); //verificare obiect dupa initializere
-		Assert.assertEquals(correctString, givenString);          //comparatie
+		String correctString = "ScoalainformaladeIT"; 
+		Assert.assertEquals(correctString, givenString);          
 				
 	}
 	
 	@Test
 	public void stringWordNumberReplacedWithDigit() {
 		//given
-		String s = "One Two Three Four Five Six Seven Eight Nine";
+		String string = "One Two Three Four Five Six Seven Eight Nine";
 		StringUtility stringUtility = new StringUtility();
 		//when
-		String givenString = stringUtility.replaceWordsWithDigits(s);
+		String givenString = stringUtility.replaceWordsWithDigits(string);
 		//then
 		String correctString = new String("1 2 3 4 5 6 7 8 9");
 		Assert.assertEquals(correctString, givenString);
@@ -31,17 +31,30 @@ public class StringUtilityTest {
 	}
 	
 	@Test
+	public void stringSingleWordNumberReplacedWithDigit() {
+		//given
+		String string = "One";
+		StringUtility stringUtility = new StringUtility();
+		//when
+		String givenString = stringUtility.replaceWordsWithDigits(string);
+		//then
+		String correctString = new String("1");
+		Assert.assertEquals(correctString, givenString);
+		
+	}
+	
+	@Test
 	public void stringWordNumberReplaceUpperCase() {
-		String string = "I have OnE apple";
+		String string = "I have ONE apple";
 		StringUtility stringUtility = new StringUtility();
 		String returnedString = stringUtility.replaceWordsWithDigits(string);
-		String correctString = "I have 1 apple";//space ala nu il am , credca deaia da fail
+		String correctString = "I have 1 apple";
 		Assert.assertEquals(correctString, returnedString);
 	}
 	
 	@Test
 	public void stringWordNumberReplaceLowerCase() {
-		String string = "I have OnE apple";
+		String string = "I have one apple";
 		StringUtility stringUtility = new StringUtility();
 		String returnedString = stringUtility.replaceWordsWithDigits(string);
 		String correctString = "I have 1 apple";
@@ -52,12 +65,24 @@ public class StringUtilityTest {
 	@Test
 	public void stringWordNumberReplacedWithDigitOnlyIfAlone() {
 		//given
-		String s = new String("One Two Thirty-four Five Six Seven Eighty-nine");
+		String string = new String("One Two Thirty-four Five Six Seven Eighty-nine");
 		StringUtility stringUtility = new StringUtility();
 		//when
-		String givenString = stringUtility.replaceWordsWithDigits(s);
+		String givenString = stringUtility.replaceWordsWithDigits(string);
 		//then
-		String correctString = new String("1 2 Thirty-four 5 6 7 Eighty-nine");
+		String correctString = "1 2 Thirty-four 5 6 7 Eighty-nine";
+		Assert.assertEquals(correctString, givenString);
+		
+	}
+	@Test
+	public void stringWordNumberFollowedBySpecialCharacterReplacedWithDigit() {
+		//given
+		String string = new String("Five six SEVEN eiGHt !!");
+		StringUtility stringUtility = new StringUtility();
+		//when
+		String givenString = stringUtility.replaceWordsWithDigits(string);
+		//then
+		String correctString = "5 6 7 8 !!";
 		Assert.assertEquals(correctString, givenString);
 		
 	}
@@ -70,3 +95,4 @@ public class StringUtilityTest {
 	}
 
 }
+
