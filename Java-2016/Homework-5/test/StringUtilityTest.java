@@ -43,6 +43,19 @@ public class StringUtilityTest {
 	}
 
 	@Test
+	public void stringRepeatedWordNumberReplacedWithDigit() {
+		// given
+		String string = "One , one , ONE , OnE , onE";
+		StringUtility stringUtility = new StringUtility();
+		// when
+		String givenString = stringUtility.replaceWordsWithDigits(string);
+		// then
+		String correctString = new String("1 , 1 , 1 , 1 , 1");
+		Assert.assertEquals(correctString, givenString);
+
+	}
+
+	@Test
 	public void stringWordNumberReplaceUpperCase() {
 		String string = "I have ONE apple";
 		StringUtility stringUtility = new StringUtility();
