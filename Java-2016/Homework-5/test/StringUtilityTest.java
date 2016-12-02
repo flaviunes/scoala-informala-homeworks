@@ -75,14 +75,14 @@ public class StringUtilityTest {
 	}
 
 	@Test
-	public void stringWordNumberFollowedBySpecialCharacterReplacedWithDigit() {
+	public void stringWordNumberFollowedBySpecialCharacter() {
 		// given
-		String string = new String("Five six SEVEN eiGHt !!");
+		String string = new String("Five six SEVEN eiGHt!!");
 		StringUtility stringUtility = new StringUtility();
 		// when
 		String givenString = stringUtility.replaceWordsWithDigits(string);
 		// then
-		String correctString = "5 6 7 8 !!";
+		String correctString = "5 6 7 eiGHt!!";
 		Assert.assertEquals(correctString, givenString);
 
 	}
