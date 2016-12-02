@@ -30,6 +30,7 @@ public class StringUtility {
 		String returnString;
 		int index = 0;
 		boolean contains = containsDigit(lowerString, "one");
+
 		if (contains == true) {
 			index = lowerString.indexOf("one");
 			returnString = lowerString.replace("one", "1");
@@ -38,6 +39,7 @@ public class StringUtility {
 			s = s.replace(oneRandomCase, oneDigit);
 		}
 		lowerString = s.toLowerCase();
+
 		contains = containsDigit(lowerString, "two");
 		if (contains == true) {
 			index = lowerString.indexOf("two");
@@ -47,6 +49,7 @@ public class StringUtility {
 			s = s.replace(twoRandomCase, twoDigit);
 		}
 		lowerString = s.toLowerCase();
+
 		contains = containsDigit(lowerString, "three");
 		if (contains == true) {
 			index = lowerString.indexOf("three");
@@ -56,6 +59,7 @@ public class StringUtility {
 			s = s.replace(threeRandomCase, threeDigit);
 		}
 		lowerString = s.toLowerCase();
+
 		contains = containsDigit(lowerString, "four");
 		if (contains == true) {
 			index = lowerString.indexOf("four");
@@ -65,6 +69,7 @@ public class StringUtility {
 			s = s.replace(fourRandomCase, fourDigit);
 		}
 		lowerString = s.toLowerCase();
+
 		contains = containsDigit(lowerString, "five");
 		if (contains == true) {
 			index = lowerString.indexOf("five");
@@ -74,6 +79,7 @@ public class StringUtility {
 			s = s.replace(fiveRandomCase, fiveDigit);
 		}
 		lowerString = s.toLowerCase();
+
 		contains = containsDigit(lowerString, "six");
 		if (contains == true) {
 			index = lowerString.indexOf("six");
@@ -83,6 +89,7 @@ public class StringUtility {
 			s = s.replace(sixRandomCase, sixDigit);
 		}
 		lowerString = s.toLowerCase();
+
 		contains = containsDigit(lowerString, "seven");
 		if (contains == true) {
 			index = lowerString.indexOf("seven");
@@ -92,6 +99,7 @@ public class StringUtility {
 			s = s.replace(sevenRandomCase, sevenDigit);
 		}
 		lowerString = s.toLowerCase();
+
 		contains = containsDigit(lowerString, "eight");
 		if (contains == true) {
 			index = lowerString.indexOf("eight");
@@ -101,6 +109,7 @@ public class StringUtility {
 			s = s.replace(eightRandomCase, eightDigit);
 		}
 		lowerString = s.toLowerCase();
+
 		contains = containsDigit(lowerString, "nine");
 		if (contains == true) {
 			index = lowerString.indexOf("nine");
@@ -110,6 +119,7 @@ public class StringUtility {
 			s = s.replace(nineRandomCase, nineDigit);
 		}
 		lowerString = s.toLowerCase();
+
 		contains = containsDigit(lowerString, "zero");
 		if (contains == true) {
 			index = lowerString.indexOf("zero");
@@ -118,7 +128,9 @@ public class StringUtility {
 			String zeroDigit = returnString.substring(index, index + 1);
 			s = s.replace(zeroRandomCase, zeroDigit);
 		}
+
 		lowerString = s.toLowerCase();
+
 		return s;
 	}
 
