@@ -1,23 +1,15 @@
 
-public class GenericQuickSort {
-
+public class QuickSort {
+	
 	private int array[];
 	private int length;
 
-	public <T extends Comparable<T>> T[] genericSort(T[] inputArr) {
+	public void sort(int[] inputArr) {
 
 		if (inputArr == null || inputArr.length == 0) {
-			throw new IllegalArgumentException("Array must not be empty");
+			return;
 		}
-		boolean sorted =false;
-		while (!sorted) {
-			sorted = true;
-			
-			
-		}
-		
-		
-		
+		this.array = inputArr;
 		length = inputArr.length;
 		quickSort(0, length - 1);
 	}
