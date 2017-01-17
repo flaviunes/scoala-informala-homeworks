@@ -1,6 +1,11 @@
-
+/**
+ * This is the non-generic quicksort algorithm.
+ * 
+ * @author Flaviu
+ *
+ */
 public class QuickSort {
-	
+
 	private int array[];
 	private int length;
 

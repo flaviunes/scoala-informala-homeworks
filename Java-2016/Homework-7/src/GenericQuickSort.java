@@ -1,10 +1,16 @@
-
-public class GenericQuickSort {
-
-	private int array[];
+/**
+ * This is the generic quicksort algorithm , which extends comparable
+ * 
+ * @author Flaviu
+ *
+ * @param <T>
+ */
+public class GenericQuickSort <T extends Comparable<T>>{
+	
+	private T[] array;
 	private int length;
 
-	public <T extends Comparable<T>> T[] genericSort(T[] inputArr) {
+	public T[] genericSort(T[] inputArr) {
 
 		if (inputArr == null || inputArr.length == 0) {
 			throw new IllegalArgumentException("Array must not be empty");
@@ -12,28 +18,26 @@ public class GenericQuickSort {
 		boolean sorted =false;
 		while (!sorted) {
 			sorted = true;
-			
-			
 		}
-		
-		
-		
+
+		this.array = inputArr;
 		length = inputArr.length;
-		quickSort(0, length - 1);
+		genericQuicksort(0, length - 1);
+		return inputArr;
 	}
 
-	private void quickSort(int lowerIndex, int higherIndex) {
+	private void genericQuicksort(int lowerIndex, int higherIndex) {
 
 		int i = lowerIndex;
 		int j = higherIndex;
-		int pivot = array[lowerIndex + (higherIndex - lowerIndex) / 2];
+		T pivot = array[lowerIndex + (higherIndex - lowerIndex) / 2];
 
 		while (i <= j) {
 
-			while (array[i] < pivot) {
+			while (array[i].compareTo(pivot) < 0) {
 				i++;
 			}
-			while (array[j] > pivot) {
+			while (array[j].compareTo(pivot) > 0) {
 				j--;
 			}
 			if (i <= j) {
@@ -44,13 +48,13 @@ public class GenericQuickSort {
 		}
 
 		if (lowerIndex < j)
-			quickSort(lowerIndex, j);
+			genericQuicksort(lowerIndex, j);
 		if (i < higherIndex)
-			quickSort(i, higherIndex);
+			genericQuicksort(i, higherIndex);
 	}
 
 	private void exchangeNumbers(int i, int j) {
-		int temp = array[i];
+		T temp = array[i];
 		array[i] = array[j];
 		array[j] = temp;
 	}
