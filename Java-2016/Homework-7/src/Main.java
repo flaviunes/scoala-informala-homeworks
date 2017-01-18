@@ -3,28 +3,17 @@
  * quicksrot algorithm that works with all types of data that are comparable.
  * 
  * 
- * 
- * Required:
- * 
- * The sort algorithm must be Generic
- * 
- * Algorithm may only work with Comparable objects.
- * 
- * Unit tests must be written, that probe the algorithm works.
- * 
- * Unit tests must cover: number sorting, string sorting, custom comparable
- * object sorting (your choice).
- * 
  * @author Flaviu
  *
  */
 public class Main {
 
-	public static void main(String a[]) {
+	public static void main(String args[]) {
 
 		QuickSort sorter = new QuickSort();
 
 		int[] inputArr = { 88, 10, 12, 4, 53, 12 };
+
 		sorter.sort(inputArr);
 
 		System.out.println("Non-generic int sorting :");
@@ -51,8 +40,13 @@ public class Main {
 		System.out.println("Integers sorting :");
 
 		Integer[] intInput = { 88, 10, 12, 4, 53, 12 };
-		genericSorter.genericSort(intInput);
 
+		if (intInput.length == 0 || intInput == null) {
+			throw new IllegalArgumentException("This list is empty!! ");
+		} else {
+			genericSorter.genericSort(intInput);
+
+		}
 		for (int i : intInput) {
 			System.out.print(i);
 			System.out.print(" ");
@@ -63,7 +57,12 @@ public class Main {
 		System.out.println("Strings sorting :");
 
 		String[] strInput = { "eight", "ten", "twelve", "four", "fifty-three", "twelve number two" };
-		genericSorter.genericSort(strInput);
+		if (strInput.length == 0 || strInput == null) {
+			throw new IllegalArgumentException("This cannot be empty!! ");
+		} else {
+			genericSorter.genericSort(strInput);
+
+		}
 
 		for (String i : strInput) {
 			System.out.print(i);

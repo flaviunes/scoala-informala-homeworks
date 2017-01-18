@@ -1,6 +1,12 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * This is the test class for generic quicksort
+ * 
+ * @author Flaviu
+ *
+ */
 public class GenericQuickSortTest {
 
 	@Test
@@ -44,15 +50,15 @@ public class GenericQuickSortTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void whenStringarrayIsEmpty_ExceptionIsThrown() {
-		String[] stringInput = {""};
+		String[] stringInput = new String[0];
 		GenericQuickSort genericSorter = new GenericQuickSort();
 		genericSorter.genericSort(stringInput);
 
 	}
-	
+
 	@Test(expected = IllegalArgumentException.class)
 	public void whenStringarrayIsNull_ExceptionIsThrown() {
-		String[] stringgInput = {null};
+		String[] stringgInput = null;
 		GenericQuickSort genericSorter = new GenericQuickSort();
 		genericSorter.genericSort(stringgInput);
 

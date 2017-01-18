@@ -5,8 +5,8 @@
  *
  * @param <T>
  */
-public class GenericQuickSort <T extends Comparable<T>>{
-	
+public class GenericQuickSort<T extends Comparable<T>> {
+
 	private T[] array;
 	private int length;
 
@@ -15,7 +15,7 @@ public class GenericQuickSort <T extends Comparable<T>>{
 		if (inputArr == null || inputArr.length == 0) {
 			throw new IllegalArgumentException("Array must not be empty");
 		}
-		boolean sorted =false;
+		boolean sorted = false;
 		while (!sorted) {
 			sorted = true;
 		}
