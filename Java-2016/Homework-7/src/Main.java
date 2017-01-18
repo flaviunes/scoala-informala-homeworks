@@ -10,13 +10,17 @@ public class Main {
 
 	public static void main(String args[]) {
 
+		System.out.println("Non-generic intArray sorting \n");
+
 		QuickSort sorter = new QuickSort();
 
 		int[] inputArr = { 88, 10, 12, 4, 53, 12 };
 
-		sorter.sort(inputArr);
-
-		System.out.println("Non-generic int sorting :");
+		if (inputArr.length == 0 || inputArr == null) {
+			throw new IllegalArgumentException("This cannot be empty!! ");
+		} else {
+			sorter.sort(inputArr);
+		}
 
 		for (int i : inputArr) {
 			System.out.print(i);
@@ -24,7 +28,8 @@ public class Main {
 		}
 		System.out.println(" ");
 		System.out.println(" ");
-		System.out.println("Doubles sorting :");
+
+		System.out.println("Doubles Array GENERIC sorting \n");
 
 		GenericQuickSort genericSorter = new GenericQuickSort();
 		Double[] doubleInput = { 88.0, 10.4, 12.42, 4.23, 53.6, 12.2 };
@@ -37,7 +42,7 @@ public class Main {
 
 		System.out.println(" ");
 		System.out.println(" ");
-		System.out.println("Integers sorting :");
+		System.out.println("Integers Array GENERIC sorting \n");
 
 		Integer[] intInput = { 88, 10, 12, 4, 53, 12 };
 
@@ -54,7 +59,7 @@ public class Main {
 
 		System.out.println(" ");
 		System.out.println(" ");
-		System.out.println("Strings sorting :");
+		System.out.println("Strings Array GENERIC sorting \n");
 
 		String[] strInput = { "eight", "ten", "twelve", "four", "fifty-three", "twelve number two" };
 		if (strInput.length == 0 || strInput == null) {

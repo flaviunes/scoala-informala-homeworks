@@ -58,9 +58,9 @@ public class GenericQuickSortTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void whenStringarrayIsNull_ExceptionIsThrown() {
-		String[] stringgInput = null;
+		String[] stringInput = null;
 		GenericQuickSort genericSorter = new GenericQuickSort();
-		genericSorter.genericSort(stringgInput);
+		genericSorter.genericSort(stringInput);
 
 	}
 

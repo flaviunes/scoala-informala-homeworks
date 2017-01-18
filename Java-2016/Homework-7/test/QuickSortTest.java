@@ -21,5 +21,37 @@ public class QuickSortTest {
 		Assert.assertArrayEquals(correctArray, inputArr);
 
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void whenIntArrayIsNull_ExceptionIsThrown() {
+		int[] inputArr = null;
+		QuickSort sorter = new QuickSort();
+		sorter.sort(inputArr);
+
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void whenIntArrayIsEmpty_ExceptionIsThrown() {
+		int[] inputArr = new int[0];
+		QuickSort sorter = new QuickSort();
+		sorter.sort(inputArr);
+
+	}
+	
+//	@Test(expected = IllegalArgumentException.class)
+//	public void whenStringarrayIsNull_ExceptionIsThrown() {
+//		String[] stringgInput = null;
+//		GenericQuickSort genericSorter = new GenericQuickSort();
+//		genericSorter.genericSort(stringgInput);
+//
+//	}
+	
+//	@Test(expected = IllegalArgumentException.class)
+//	public void whenStringarrayIsEmpty_ExceptionIsThrown() {
+//		String[] stringInput = new String[0];
+//		GenericQuickSort genericSorter = new GenericQuickSort();
+//		genericSorter.genericSort(stringInput);
+//
+//	}
 
 }
