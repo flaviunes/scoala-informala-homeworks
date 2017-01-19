@@ -12,7 +12,7 @@ public class QuickSort {
 	public void sort(int[] inputArr) {
 
 		if (inputArr == null || inputArr.length == 0) {
-			return;
+			throw new IllegalArgumentException("Array must not be empty");
 		}
 		this.array = inputArr;
 		length = inputArr.length;
