@@ -1,7 +1,12 @@
-import java.sql.Time;
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
 
+/**
+ * This is the Athlete class , where all parameters are added for an athlete
+ * 
+ * @author Flaviu
+ *
+ */
 public class Athlete implements Comparable<Athlete> {
 	private int athleteNumber;
 	private String athleteName;
@@ -79,6 +84,10 @@ public class Athlete implements Comparable<Athlete> {
 		this.thirdShootingRange = thirdShootingRange;
 	}
 
+	/**
+	 * toString method returns athlete parameters and skiTimeResult as minutes
+	 * and seconds.
+	 */
 	@Override
 	public String toString() {
 		return athleteNumber + " " + athleteName + " " + countryCode + " " + skiTimeResult.getMinutes() + ":"
@@ -86,6 +95,9 @@ public class Athlete implements Comparable<Athlete> {
 				+ thirdShootingRange;
 	}
 
+	/**
+	 * This is the compare method implemented form Compareble class.
+	 */
 	@Override
 	public int compareTo(Athlete athlete) {
 		return this.skiTimeResult.compareTo(athlete.getSkiTimeResult());

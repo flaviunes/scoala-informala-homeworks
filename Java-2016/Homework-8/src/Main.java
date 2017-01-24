@@ -1,12 +1,15 @@
 
 public class Main {
-
-	private static final String FILENAME = "src\\test.csv";
+	/**
+	 * This is the main method , where each method is called on a manager
+	 * object.
+	 */
+	private static final String FILENAME = "src\\AthletsList.csv";
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-		AthletsManager manager = new AthletsManager(FILENAME);
+		AthletesManager manager = new AthletesManager(FILENAME);
+
 		manager.readFromFile();
 		manager.printAthlets();
 		manager.calculateFinalTime();
