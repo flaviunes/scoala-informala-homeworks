@@ -31,13 +31,7 @@ tmp/
 *.bak
 *.swp
 *~.nib
-local.properties
-.settings/
-.loadpath
-.recommenders
 
-# Eclipse Core
-.project
 
 # External tool builders
 .externalToolBuilders/

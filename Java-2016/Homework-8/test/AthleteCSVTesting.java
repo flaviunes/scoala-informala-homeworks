@@ -11,8 +11,8 @@ import org.junit.Test;
 public class AthleteCSVTesting {
 	
 //	@Test
-//	public void whenParsingCSVList_withOneNovel_shouldReturnBookList_ofOneNovel() throws IOException {
-//		String csv = "Novel,J.R.R Tolkien,The Hobbit,FANTASY\n";
+//	public void whenParsingCSVList_withOneAthlete_shouldReturnAthleteList_ofOneAthlete() throws IOException {
+//		String csv = "11,Umar Jorgson,SK,00:30:27,xxxox,xxxxx,xxoxo\n";
 //		StringReader sr = new StringReader(csv);
 //		try (CSVBookReader bookReader = new CSVBookReader(sr)) {
 //			List<Book> books = bookReader.readBooks();

@@ -18,6 +18,8 @@ import java.util.Date;
  *
  */
 public class AthletesManager {
+	
+	private static final String SEPARATOR = ",";
 
 	private String fileName;
 
@@ -69,7 +71,7 @@ public class AthletesManager {
 	 * into date format.
 	 */
 	private Athlete parseLine(String sCurrentLine) {
-		String[] words = sCurrentLine.split(",");
+		String[] words = sCurrentLine.split(SEPARATOR);
 
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 		Date date = null;
