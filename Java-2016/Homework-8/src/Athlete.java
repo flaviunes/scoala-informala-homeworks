@@ -102,24 +102,64 @@ public class Athlete implements Comparable<Athlete> {
 	public int compareTo(Athlete athlete) {
 		return this.skiTimeResult.compareTo(athlete.getSkiTimeResult());
 	}
+	
+	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((athleteName == null) ? 0 : athleteName.hashCode());
+		result = prime * result + athleteNumber;
+		result = prime * result + ((countryCode == null) ? 0 : countryCode.hashCode());
+		result = prime * result + ((firstShootingRange == null) ? 0 : firstShootingRange.hashCode());
+		result = prime * result + ((secondShootingRange == null) ? 0 : secondShootingRange.hashCode());
+		result = prime * result + ((skiTimeResult == null) ? 0 : skiTimeResult.hashCode());
+		result = prime * result + ((thirdShootingRange == null) ? 0 : thirdShootingRange.hashCode());
+		return result;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this.athleteNumber != ((Athlete) obj).athleteNumber)
+		if (this == obj)
+			return true;
+		if (obj == null)
 			return false;
-		if (!this.athleteName.equals(((Athlete) obj).athleteName))
+		if (getClass() != obj.getClass())
 			return false;
-		if (!this.countryCode.equals(((Athlete) obj).countryCode))
+		Athlete other = (Athlete) obj;
+		if (athleteName == null) {
+			if (other.athleteName != null)
+				return false;
+		} else if (!athleteName.equals(other.athleteName))
 			return false;
-		if (!this.skiTimeResult.equals(((Athlete) obj).skiTimeResult))
+		if (athleteNumber != other.athleteNumber)
 			return false;
-		if (!this.firstShootingRange.equals(((Athlete) obj).firstShootingRange))
+		if (countryCode == null) {
+			if (other.countryCode != null)
+				return false;
+		} else if (!countryCode.equals(other.countryCode))
 			return false;
-		if (!this.secondShootingRange.equals(((Athlete) obj).secondShootingRange))
+		if (firstShootingRange == null) {
+			if (other.firstShootingRange != null)
+				return false;
+		} else if (!firstShootingRange.equals(other.firstShootingRange))
 			return false;
-		if (!this.thirdShootingRange.equals(((Athlete) obj).thirdShootingRange))
+		if (secondShootingRange == null) {
+			if (other.secondShootingRange != null)
+				return false;
+		} else if (!secondShootingRange.equals(other.secondShootingRange))
 			return false;
-
+		if (skiTimeResult == null) {
+			if (other.skiTimeResult != null)
+				return false;
+		} else if (!skiTimeResult.equals(other.skiTimeResult))
+			return false;
+		if (thirdShootingRange == null) {
+			if (other.thirdShootingRange != null)
+				return false;
+		} else if (!thirdShootingRange.equals(other.thirdShootingRange))
+			return false;
 		return true;
 	}
 }

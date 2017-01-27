@@ -1,3 +1,8 @@
+import java.io.File;
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+
 
 public class Main {
 	/**
@@ -6,11 +11,11 @@ public class Main {
 	 */
 	private static final String FILENAME = "src\\AthletesList.csv";
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		File file = new File(FILENAME);
+		AthletesManager manager = new AthletesManager(Files.newBufferedReader(file.toPath()));
 
-		AthletesManager manager = new AthletesManager(FILENAME);
-
-		manager.readFromFile();
+		manager.readFromReader();
 		System.out.println("Athteles final timers before penalty :\n");
 		manager.printAthletes();
 		manager.calculateFinalTime();
@@ -19,6 +24,9 @@ public class Main {
 		manager.printAthletes();
 
 		System.out.println("\nAthteles final standings :");
-		manager.printAthletesInOrder();
+		System.out.println("Winner :" + manager.athletesInOrder().get(0));
+		System.out.println(manager.athletesInOrder().get(1));
+		System.out.println(manager.athletesInOrder().get(2));
+
 	}
 }

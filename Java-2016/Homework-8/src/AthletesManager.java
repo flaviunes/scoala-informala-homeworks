@@ -3,6 +3,7 @@ import java.util.List;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Reader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -17,16 +18,16 @@ import java.util.Date;
  * @author Flaviu
  *
  */
-public class AthletesManager {
+public class AthletesManager extends BufferedReader {
 
 	private static final String SEPARATOR = ",";
 
 	private String fileName;
 
-	private List<Athlete> athletes;
+	private ArrayList<Athlete> athletes;
 
-	public AthletesManager(String filename) {
-		this.fileName = filename;
+	public AthletesManager(Reader in) {
+		super(in);
 		athletes = new ArrayList<>();
 	}
 
@@ -34,34 +35,24 @@ public class AthletesManager {
 	 * This method reads line by line from file with a while loop , then add the
 	 * lines in athletes list.
 	 */
-	public void readFromFile() {
-		BufferedReader br = null;
-		FileReader fr = null;
+
+	public void readFromReader() {
 
 		try {
-			fr = new FileReader(fileName);
-			br = new BufferedReader(fr);
+			// fr = new FileReader();
+			// br = new BufferedReader(fr);
 
-			String sCurrentLine;
+			String sCurrentLine = readLine();
 
-			br = new BufferedReader(new FileReader(fileName));
+			// br = new BufferedReader(new FileReader(fileName));
 
-			while ((sCurrentLine = br.readLine()) != null) {
+			while (sCurrentLine != null) {
 				Athlete athlete = parseLine(sCurrentLine);
 				athletes.add(athlete);
+				sCurrentLine = readLine();
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				if (br != null)
-					br.close();
-
-				if (fr != null)
-					fr.close();
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
 		}
 	}
 
@@ -140,7 +131,7 @@ public class AthletesManager {
 	/**
 	 * This method prints every athlete sorted by the final timer.
 	 */
-	public void printAthletesInOrder() {
+	public ArrayList<Athlete> athletesInOrder() {
 		System.out.println();
 		for (int i = 0; i <= athletes.size() - 1; i++) {
 			for (int j = i + 1; j < athletes.size(); j++) {
@@ -152,7 +143,7 @@ public class AthletesManager {
 			}
 		}
 
-		printAthletes();
+		return athletes;
 	}
 
 	public void setAthlets(List<Athlete> athletes2) {
