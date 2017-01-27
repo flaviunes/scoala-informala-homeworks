@@ -17,8 +17,8 @@ import java.util.Date;
  * @author Flaviu
  *
  */
-public class AthletesManager {
-	
+public class AthletesManager {  // pe cand clasa noastra nu extinde nimic
+
 	private static final String SEPARATOR = ",";
 
 	private String fileName;
@@ -153,6 +153,15 @@ public class AthletesManager {
 		}
 
 		printAthletes();
+	}
+
+	public void setAthlets(List<Athlete> athletes2) {
+		this.athletes.clear();
+		this.athletes.addAll(athletes2);
+	}
+
+	public List<Athlete> getAthletsList() {
+		return athletes;
 	}
 
 }

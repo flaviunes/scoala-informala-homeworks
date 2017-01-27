@@ -102,4 +102,24 @@ public class Athlete implements Comparable<Athlete> {
 	public int compareTo(Athlete athlete) {
 		return this.skiTimeResult.compareTo(athlete.getSkiTimeResult());
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this.athleteNumber != ((Athlete) obj).athleteNumber)
+			return false;
+		if (!this.athleteName.equals(((Athlete) obj).athleteName))
+			return false;
+		if (!this.countryCode.equals(((Athlete) obj).countryCode))
+			return false;
+		if (!this.skiTimeResult.equals(((Athlete) obj).skiTimeResult))
+			return false;
+		if (!this.firstShootingRange.equals(((Athlete) obj).firstShootingRange))
+			return false;
+		if (!this.secondShootingRange.equals(((Athlete) obj).secondShootingRange))
+			return false;
+		if (!this.thirdShootingRange.equals(((Athlete) obj).thirdShootingRange))
+			return false;
+
+		return true;
+	}
 }
