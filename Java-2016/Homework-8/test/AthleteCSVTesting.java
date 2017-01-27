@@ -1,14 +1,11 @@
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-
 import java.io.IOException;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import org.junit.Test;
 
 public class AthleteCSVTesting {
@@ -25,17 +22,14 @@ public class AthleteCSVTesting {
 			assertEquals(1, athletes.size());
 			athletes.add(new Athlete(13, "Jorgson", "DK", getDateFromString("00:23:47"), "ooooo", "xxxxx", "xxoxo"));
 			athletes.add(new Athlete(14, "Umar ", "EK", getDateFromString("00:12:27"), "xxxox", "xoxox", "xxoxo"));
-
 			manager.setAthlets(athletes);
 			manager.calculateFinalTime();
-
 			Athlete expected1 = new Athlete(11, "Umar Jorgson", "SK", getDateFromString("00:30:57"), "xxxox", "xxxxx",
 					"xxoxo");
 			Athlete expected2 = new Athlete(13, "Jorgson", "DK", getDateFromString("00:24:57"), "ooooo", "xxxxx",
 					"xxoxo");
 			Athlete expected3 = new Athlete(14, "Umar ", "EK", getDateFromString("00:13:17"), "xxxox", "xoxox",
 					"xxoxo");
-
 			Athlete[] expected = new Athlete[] { expected1, expected2, expected3 };
 			Athlete[] actual = new Athlete[3];
 			manager.getAthletsList().toArray(actual);
