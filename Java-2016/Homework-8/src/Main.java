@@ -11,10 +11,14 @@ public class Main {
 		AthletesManager manager = new AthletesManager(FILENAME);
 
 		manager.readFromFile();
-		manager.printAthlets();
+		System.out.println("Athteles final timers before penalty :\n");
+		manager.printAthletes();
 		manager.calculateFinalTime();
 		System.out.println();
-		manager.printAthlets();
-		manager.printAthletsInOrder();
+		System.out.println("Athteles final timers after penalty :\n");
+		manager.printAthletes();
+
+		System.out.println("\nAthteles final standings :");
+		manager.printAthletesInOrder();
 	}
 }

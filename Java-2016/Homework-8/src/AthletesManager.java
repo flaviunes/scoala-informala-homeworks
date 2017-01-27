@@ -87,7 +87,7 @@ public class AthletesManager {
 	/**
 	 * This method prints all Athletes read from the CSV file.
 	 */
-	public void printAthlets() {
+	public void printAthletes() {
 		for (Athlete athlete : athletes) {
 			System.out.println(athlete.toString());
 		}
@@ -140,7 +140,7 @@ public class AthletesManager {
 	/**
 	 * This method prints every athlete sorted by the final timer.
 	 */
-	public void printAthletsInOrder() {
+	public void printAthletesInOrder() {
 		System.out.println();
 		for (int i = 0; i <= athletes.size() - 1; i++) {
 			for (int j = i + 1; j < athletes.size(); j++) {
@@ -152,7 +152,7 @@ public class AthletesManager {
 			}
 		}
 
-		printAthlets();
+		printAthletes();
 	}
 
 }
