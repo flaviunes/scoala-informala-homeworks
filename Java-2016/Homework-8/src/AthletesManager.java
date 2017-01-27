@@ -17,7 +17,7 @@ import java.util.Date;
  * @author Flaviu
  *
  */
-public class AthletesManager {  // pe cand clasa noastra nu extinde nimic
+public class AthletesManager {
 
 	private static final String SEPARATOR = ",";
 
