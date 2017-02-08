@@ -1,24 +1,42 @@
 
-public class FestivalGate implements Runnable {
-	private boolean ticketValidation = false;
-	private long counter;
+public class FestivalGate {
 
-	public synchronized boolean validateTicket() {
-		return ticketValidation = true;
+	private long counterAll;
+	private long counterFull;
+	private long counterFullVIP;
+	private long counterFreePass;
+	private long counterOneDay;
+	private long counterOneDayVIP;
+
+	// TODO: Complete this switch with all ticket types, and remove the default case
+	public synchronized void allowAttendee(Ticket ticket) {
+		counterAll++;
+		switch (ticket.getTicketType()) {
+		case FULL:
+			counterFull++;
+			break;
+		case FULLVIP:
+			counterFullVIP++;
+			break;
+		case ONEDAY:
+			counterOneDay++;
+			break;
+		case ONEDAYVIP:
+			counterOneDayVIP++;
+			break;
+		case FREEPASS:
+			counterFreePass++;
+			break;
+		}
 	}
 	
-	public synchronized long getCounter() {
-		return counter;
+	public void printStatistics() {
+		System.out.println("\n" + counterAll + " people entered !");
+		System.out.println("\n" + counterFreePass + " have free pass !");
+		System.out.println("\n" + counterFull + " people have full access !");
+		System.out.println("\n" + counterFullVIP + " people have full VIP access !");
+		System.out.println("\n" + counterOneDay + " people have one day access !");
+		System.out.println("\n" + counterOneDayVIP + " people have one day VIP access !");
 	}
 
-	public synchronized long incrementCounter() {
-		return counter = counter + 1;
-	}
-
-	@Override
-	public void run() {
-
-		validateTicket();
-		incrementCounter();
-	}
 }

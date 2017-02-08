@@ -1,25 +1,27 @@
 
 public class Ticket {
+
 	private TicketType ticketType;
-	private boolean ticketValidation = false;
+	private boolean isValid;
+
+	public static Ticket createRandomTicket() {
+		return new Ticket(TicketType.randomTicketType());
+	}
 
 	public Ticket(TicketType ticketType) {
 		this.ticketType = ticketType;
-
-	}
-
-	@Override
-	public String toString() {
-
-		return ticketType.toString();
 	}
 
 	public TicketType getTicketType() {
 		return ticketType;
 	}
 
-	public boolean validateTicket() {
-		return ticketValidation = true;
+	public void setIsValid(boolean isValid) {
+		this.isValid = isValid;
+	}
+
+	public boolean isValid() {
+		return isValid;
 	}
 
 }
