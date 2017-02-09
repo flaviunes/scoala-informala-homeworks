@@ -1,4 +1,9 @@
-
+/**
+ * This class creates tickets of type random ticketType
+ * 
+ * @author Flaviu
+ *
+ */
 public class Ticket {
 
 	private TicketType ticketType;

@@ -13,6 +13,12 @@ public enum TicketType {
 
 	private static final Random RANDOM = new Random();
 
+	/**
+	 * This method generates one random value from the enum , when it's called
+	 * on ticket type.
+	 * 
+	 * @return
+	 */
 	public static TicketType randomTicketType() {
 		return values()[RANDOM.nextInt(values().length)];
 

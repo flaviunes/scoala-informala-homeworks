@@ -1,4 +1,10 @@
-
+/**
+ * This class represents the festival gate in which all data about attendees and
+ * tickets are hold into.
+ * 
+ * @author Flaviu
+ *
+ */
 public class FestivalGate {
 
 	private long counterAll;
@@ -8,7 +14,12 @@ public class FestivalGate {
 	private long counterOneDay;
 	private long counterOneDayVIP;
 
-	// TODO: Complete this switch with all ticket types, and remove the default case
+	/**
+	 * This method increments counters , depending on the ticket type ,
+	 * counterAll is always incremented with any type of ticket.
+	 * 
+	 * @param ticket
+	 */
 	public synchronized void allowAttendee(Ticket ticket) {
 		counterAll++;
 		switch (ticket.getTicketType()) {
@@ -29,7 +40,11 @@ public class FestivalGate {
 			break;
 		}
 	}
-	
+
+	/**
+	 * This method prints how many festival attendees entered through the
+	 * festival gate.
+	 */
 	public void printStatistics() {
 		System.out.println("\n" + counterAll + " people entered !");
 		System.out.println("\n" + counterFreePass + " have free pass !");

@@ -1,7 +1,13 @@
-
+/**
+ * This class is used to create a thread which reads statistics from the
+ * festival gate.
+ * 
+ * @author Flaviu
+ *
+ */
 public class Statistics implements Runnable {
 
-	private static final long POLLING_INTERVAL = 3000;
+	private static final long READING_INTERVAL = 3000;
 
 	private FestivalGate gate;
 
@@ -16,7 +22,7 @@ public class Statistics implements Runnable {
 	public void run() {
 		while (running) {
 			try {
-				Thread.sleep(POLLING_INTERVAL);
+				Thread.sleep(READING_INTERVAL);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -24,6 +30,10 @@ public class Statistics implements Runnable {
 		}
 	}
 
+	/**
+	 * This method tells the statistics thread to stop . It is used in the main
+	 * method after all festival attendees entered through the festival gate.
+	 */
 	public void stop() {
 		running = false;
 	}
