@@ -28,5 +28,6 @@ public class Ticket {
 	public boolean isValid() {
 		return isValid;
 	}
+	
 
 }

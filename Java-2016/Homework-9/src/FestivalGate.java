@@ -54,4 +54,30 @@ public class FestivalGate {
 		System.out.println("\n" + counterOneDayVIP + " people have one day VIP access !");
 	}
 
+	public long getCounterAll() {
+		return counterAll;
+
+	}
+
+	public long getCounterFull() {
+		return counterFull;
+	}
+
+	public long getCounterFullVIP() {
+		return counterFullVIP;
+	}
+
+	public long getCounterFreePass() {
+		return counterFreePass;
+	}
+
+	public long getCounterOneDay() {
+		return counterOneDay;
+	}
+
+	public long getCounterOneDayVIP() {
+		return counterOneDayVIP;
+	}
+
+
 }

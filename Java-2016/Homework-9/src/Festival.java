@@ -32,7 +32,9 @@ public class Festival {
 				e.printStackTrace();
 			}
 		}
+		
 		statistics.stop();
+
 	}
 
 }
