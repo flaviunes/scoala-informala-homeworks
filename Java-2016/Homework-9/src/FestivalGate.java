@@ -45,7 +45,7 @@ public class FestivalGate {
 	 * This method prints how many festival attendees entered through the
 	 * festival gate.
 	 */
-	public void printStatistics() {
+	public synchronized void printStatistics() {
 		System.out.println("\n" + counterAll + " people entered !");
 		System.out.println("\n" + counterFreePass + " have free pass !");
 		System.out.println("\n" + counterFull + " people have full access !");
