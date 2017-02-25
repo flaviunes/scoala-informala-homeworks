@@ -7,29 +7,20 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * This is accommodation data acces object class with add , delete and get
- * methods.
- * 
- * @author Flaviu
- *
- */
-public class AccomodationDAO {
+public class AccomodationFairRelationDAO {
 	/**
 	 * This method adds data into accommodation table.
 	 * 
 	 * @param accomodation
 	 */
-	public void add(Accomodation accomodation) {
+	public void add(AccomodationFairRelation afr) {
 
 		try (Connection conn = newConnection("postgresql", "localhost", "5432", "Booking", "postgres", "portocaliu");
 				PreparedStatement stm = conn.prepareStatement(
-						"INSERT INTO accomodation(type, bed_type, max_guests, description) values(?,?,?, ?)");) {
+						("INSERT INTO accomodation_fair_relation(id_accomodation, id_room_fair) values(?,?)"));) {
 
-			stm.setString(1, accomodation.getType());
-			stm.setString(2, accomodation.getBedType());
-			stm.setInt(3, accomodation.getMaxGuests());
-			stm.setString(4, accomodation.getDescription());
+			stm.setLong(1, afr.getIdAccomodation());
+			stm.setLong(2, afr.getIdRoomFair());
 
 			stm.executeUpdate();
 
@@ -44,9 +35,9 @@ public class AccomodationDAO {
 	 * 
 	 * @param accomodation
 	 */
-	public void delete(Accomodation accomodation) {
+	public void delete(AccomodationFairRelation afr) {
 		try (Connection conn = newConnection("postgresql", "localhost", "5432", "Booking", "postgres", "portocaliu");
-				PreparedStatement stm = conn.prepareStatement("DELETE FROM accomodation");) {
+				PreparedStatement stm = conn.prepareStatement("DELETE FROM accomodation_fair_relation");) {
 
 			stm.executeUpdate();
 
@@ -56,30 +47,41 @@ public class AccomodationDAO {
 
 	}
 
+	public void printJoinResult() {
+		try (Connection conn = newConnection("postgresql", "localhost", "5432", "Booking", "postgres", "portocaliu");
+				PreparedStatement stm = conn.prepareStatement(
+						"SELECT * FROM accomodation_fair_relation [INNER] JOIN accomodation ON accomodation.id=accomodation_fair_relation.id_accomodation"
+								+ "[INNER] JOIN room_fair ON room_fair.id=accomodation_fair_relation.id_room_fair");) {
+			stm.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
 	/**
 	 * This method prints all data from the accommodation table.
 	 * 
 	 * @return
 	 */
-	public List<Accomodation> getAll() {
-		List<Accomodation> result = new LinkedList<>();
+	public List<AccomodationFairRelation> getAll() {
+		List<AccomodationFairRelation> result = new LinkedList<>();
 
 		try (Connection conn = newConnection("postgresql", "localhost", "5432", "Booking", "postgres", "portocaliu");
 				Statement stm = conn.createStatement();
-				ResultSet rs = stm.executeQuery("select id, type, bed_type, max_guests, description from accomodation");
+				ResultSet rs = stm.executeQuery("select idAccomodation, idRoomFair from accomodation_fair_relation");
 
 		) {
 
 			while (rs.next()) {
-				Accomodation ac = new Accomodation();
+				AccomodationFairRelation afr = new AccomodationFairRelation();
 
-				ac.setId(rs.getInt("id"));
-				ac.setType(rs.getString("type"));
-				ac.setBedType(rs.getString("bed_type"));
-				ac.setMaxGuests(rs.getInt("max_guests"));
-				ac.setDescription(rs.getString("description"));
+				afr.setId(rs.getInt("id"));
+				afr.setIdAccomodation(rs.getInt("id_accomodation"));
+				afr.setIdRoomFair(rs.getInt("id_room_fair"));
 
-				result.add(ac);
+				result.add(afr);
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -130,8 +132,3 @@ public class AccomodationDAO {
 	}
 
 }
-
-// new
-// StringBuilder().append("jdbc:").append(type).append("://").append(host).append(":")
-// .append(port).append("/").append(dbName).append("?user=").append(user).append("&password=")
-// .append(pw).toString();

@@ -7,18 +7,28 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * This is the room fair data access object class with add , get and delete
+ * methods
+ * 
+ * @author Flaviu
+ *
+ */
 public class RoomFairDAO {
-
+	/**
+	 * This method adds data into room_fair table.
+	 * 
+	 * @param rf
+	 */
 	public void add(RoomFair rf) {
 
 		try (Connection conn = newConnection("postgresql", "localhost", "5432", "Booking", "postgres", "portocaliu");
-				PreparedStatement stm = conn
-						.prepareStatement("INSERT INTO room_fair(value, season) values('1000','july2017')");) {
+				PreparedStatement stm = conn.prepareStatement("INSERT INTO room_fair(value, season) values(?,?)");) {
 
 			stm.setDouble(1, rf.getValue());
 			stm.setString(2, rf.getSeason());
 
-			stm.execute();
+			stm.executeUpdate();
 
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -26,6 +36,28 @@ public class RoomFairDAO {
 
 	}
 
+	/**
+	 * This method deletes all data from room_fair table
+	 * 
+	 * @param rf
+	 */
+	public void delete(RoomFair rf) {
+		try (Connection conn = newConnection("postgresql", "localhost", "5432", "Booking", "postgres", "portocaliu");
+				PreparedStatement stm = conn.prepareStatement("DELETE FROM room_fair");) {
+
+			stm.executeUpdate();
+
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * This method returns all data from room fair table.
+	 * 
+	 * @return
+	 */
 	public List<RoomFair> getAll() {
 		List<RoomFair> result = new LinkedList<>();
 
@@ -51,6 +83,9 @@ public class RoomFairDAO {
 		return result;
 	}
 
+	/**
+	 * This method loads postgresql driver.
+	 */
 	private static void loadDriver() {
 		try {
 			Class.forName("org.postgresql.Driver").newInstance();
@@ -61,6 +96,17 @@ public class RoomFairDAO {
 
 	}
 
+	/**
+	 * This method opens a connection to our database.
+	 * 
+	 * @param type
+	 * @param host
+	 * @param port
+	 * @param dbName
+	 * @param user
+	 * @param pw
+	 * @return
+	 */
 	private static Connection newConnection(String type, String host, String port, String dbName, String user,
 			String pw) {
 

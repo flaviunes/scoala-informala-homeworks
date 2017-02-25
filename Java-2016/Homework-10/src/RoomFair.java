@@ -1,4 +1,9 @@
-
+/**
+ * This is the room fair class with setters and getters and toString methods
+ * 
+ * @author Flaviu
+ *
+ */
 public class RoomFair {
 
 	private int id;

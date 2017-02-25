@@ -1,4 +1,9 @@
-
+/**
+ * This is accomodation class with setters and getters and toString methods
+ * 
+ * @author Flaviu
+ *
+ */
 public class Accomodation {
 
 	private int id;
