@@ -1,23 +1,27 @@
+import java.util.List;
+
 /**
  * This is a class which implements runnable , and this class is used to deliver
- * packages with diffrent deliverer.
+ * packages with different deliverer.
  * 
  * @author Flaviu
  *
  */
 public class PackageDeliverer implements Runnable {
-	private Package p;
 
-	public PackageDeliverer(Package p) {
-		this.p = p;
+	private List<Package> packages;
+
+	public PackageDeliverer(List<Package> packages) {
+		this.packages = packages;
 	}
 
 	@Override
 	public void run() {
-		if (p.isDelivered() == false) {
-			deliverPackage(p);
+		for (Package currentPackage : packages) {
+			if (currentPackage.isDelivered() == false) {
+				deliverPackage(currentPackage);
+			}
 		}
-
 	}
 
 	/**
@@ -26,6 +30,7 @@ public class PackageDeliverer implements Runnable {
 	 * @param p
 	 */
 	public void deliverPackage(Package p) {
+		System.out.println(p.toString());
 		p.setDelivered(true);
 	}
 

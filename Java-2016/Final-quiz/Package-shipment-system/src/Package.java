@@ -54,7 +54,7 @@ public class Package {
 	@Override
 	public String toString() {
 		return "This package generated a profit of " + calculateMerchediseProfit()
-				+ " lei, and it was succesfully delivered !";
+				+ " lei, and it was succesfully delivered by" + Thread.currentThread().getName() + "!";
 	}
 
 }
