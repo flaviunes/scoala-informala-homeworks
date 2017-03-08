@@ -46,6 +46,11 @@ public class Package {
 		this.isDelivered = isDelivered;
 	}
 
+	/**
+	 * This method calculates the profit based on the constant value per km.
+	 * 
+	 * @return
+	 */
 	public double calculateMerchediseProfit() {
 		return distance * VALUE_PER_KM;
 
@@ -53,8 +58,7 @@ public class Package {
 
 	@Override
 	public String toString() {
-		return "This package generated a profit of " + calculateMerchediseProfit()
-				+ " lei, and it was succesfully delivered by" + Thread.currentThread().getName() + "!";
+		return "This package was succesfully delivered by" + Thread.currentThread().getName() + "!";
 	}
 
 }
